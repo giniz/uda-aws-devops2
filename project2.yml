@@ -40,10 +40,6 @@ Resources:
         FromPort: 80
         ToPort: 80
         CidrIp: 0.0.0.0/0
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        CidrIp: 0.0.0.0/0
       SecurityGroupEgress:
       - IpProtocol: tcp
         FromPort: 0
@@ -95,7 +91,6 @@ Resources:
           aws s3 cp s3://udacitys3/index.html /var/www/html
       ImageId: !Ref ServerAMIId
       IamInstanceProfile: !Ref S3BucketsInstanceProfile
-      KeyName: udacity_lab
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: !Ref InstanceType
